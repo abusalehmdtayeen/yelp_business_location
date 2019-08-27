@@ -23,11 +23,11 @@ def read_csv(file_name, fieldnames):
 class ZipSpider(scrapy.Spider):
  	name = "zipinfo"
 
- 	#state_records = read_csv(file_path+"AZ_postal_codes", ["Zip Code", "Place Name", "State", "State Abbreviation", "County", "Latitude", "Longitude"])
- 	#start_urls = ["http://www.city-data.com/zips/"+str(record['Zip Code'].strip())+".html" for record in state_records]
+ 	state_records = read_csv(file_path+"AZ_postal_codes", ["Zip Code", "Place Name", "State", "State Abbreviation", "County", "Latitude", "Longitude"])
+ 	start_urls = ["http://www.city-data.com/zips/"+str(record['Zip Code'].strip())+".html" for record in state_records]
  	#with open(file_path+"AZ_counties.txt", "rt") as f:
  		#start_urls = ["http://www.city-data.com/county/"+county.strip()+"_County-AZ.html" for county in f.readlines()]
- 	start_urls = ['http://www.city-data.com/zips/85255.html'] #85087, 85003, 85009, 85206
+ 	#start_urls = ['http://www.city-data.com/zips/85255.html'] #85087, 85003, 85009, 85206
  	    
  	def start_requests(self):
  		for indx, url in enumerate(self.start_urls):
